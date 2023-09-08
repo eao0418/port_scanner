@@ -1,0 +1,5 @@
+{
+  "portScannerOptions": {
+    "tableServiceAccountEndpoint": "https://scannerstpprod.table.core.windows.net/"
+  }
+}

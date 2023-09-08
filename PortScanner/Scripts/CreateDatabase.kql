@@ -1,0 +1,22 @@
+.execute database script 
+<|
+.create-merge table ScanResult (
+    site: string,
+    ipAddress : string,
+    port: int,
+    protocol: string,
+    isOpen: bool,
+    scanId: string,
+    scanDate: datetime
+    );
+//
+.create-or-alter table ScanResult ingestion json mapping "ScanResult_Mapping"
+'['
+'  {"Column": "ipAddress", "Properties": {"Path": "$.IPAddress"}},'
+'  {"Column": "port",      "Properties": {"Path": "$.Port"}},'
+'  {"Column": "isOpen",      "Properties": {"Path": "$.IsOpen"}},'
+'  {"Column": "scanId",      "Properties": {"Path": "$.ScanId"}},'
+'  {"Column": "protocol",      "Properties": {"Path": "$.Protocol"}},'
+'  {"Column": "site",      "Properties": {"Path": "$.Site"}},'
+'  {"Column": "scanDate",      "Properties": {"Path": "$.ScanDate"}}'
+']'
